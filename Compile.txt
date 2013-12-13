@@ -1,0 +1,39 @@
+I don't know why you'd want to compile the code before I do, but here are the instructions anyways:
+
+1. You must have Eclipse IDE.
+
+2. Download the Minecraft Forge source 1.6.4. The version used for this mod is 9.11.1.935.
+
+3. Extract the contents of the downloaded archive to an empty folder.
+
+4. Run the "install" script (this may take a while).
+
+5. Set the Eclipse workspace as ""foldername"/forge/mcp/eclipse"
+
+6. Download this mod as a zip.
+
+7. Extract the contents to a different folder.
+
+8. Inside the "src" folder will be a folder titled "Dr_Sideburns". Inside that will be a folder titled "winterWarMod" or something like that. Create a package in the Eclipse workspace titled "Dr_Sideburns.winterWarMod".
+
+9. There will be folders inside the "winterWarMod" folder. You will need to create packages for those as well (Example: Dr_Sideburns.winterWarMod.entity")
+
+10. Do the same for the assets folder (Example: assets.winterwarmod.textures.items)
+
+11. Copy the Java files into their corresponding packages.
+
+12. Copy the textures into their corresponding packages.
+
+13. Check for errors and fix them.
+
+14. Save Eclipse.
+
+15. Navigate to ""foldername"/forge/mcp" and run the Recompile script. Ignore any errors.
+
+16. Run the Reobfuscate script and ignore any errors.
+
+17. The compiled files will be in  ""foldername"/forge/mcp/reobf". Add the "Dr_Sideburns folder to a new zip archive.
+
+18. Find the assets folder: ""foldername"/forge/mcp/src/minecraft/assets". Add this to the same archive as in 17.
+
+19. That zip archive is now a functional mod.
