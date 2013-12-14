@@ -10,6 +10,8 @@ public class ItemIcePick extends Item {
 
 	public ItemIcePick(int par1) {
 		super(par1);
+		this.setMaxStackSize(1);
+		this.setMaxDamage(100);
 	}
 	
 	@Override
@@ -17,6 +19,7 @@ public class ItemIcePick extends Item {
 			, int par4, int par5, int par6, int par7, float par8, float par9, float par10) {
 		if(par3World.getBlockId(par4, par5, par6) == Block.ice.blockID) {
 			par3World.setBlock(par4, par5, par6, WinterWarMain.minableIceBlock.blockID);
+			par1ItemStack.damageItem(1, par2EntityPlayer);
 		}
 		return true;
 	}

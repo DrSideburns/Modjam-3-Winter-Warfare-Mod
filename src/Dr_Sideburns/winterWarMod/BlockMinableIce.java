@@ -51,7 +51,7 @@ public class BlockMinableIce extends BlockBreakable {
     }
     
     public int quantityDropped(Random par1Random) {
-		int r = par1Random.nextInt(5);
+		int r = par1Random.nextInt(3);
     	return (2 + r);	
     }
 

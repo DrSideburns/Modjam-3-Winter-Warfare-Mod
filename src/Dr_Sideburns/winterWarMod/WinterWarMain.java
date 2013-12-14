@@ -1,6 +1,7 @@
 package Dr_Sideburns.winterWarMod;
 
 //Imports
+import Dr_Sideburns.winterWarMod.entity.EntityExplodingSnowball;
 import Dr_Sideburns.winterWarMod.entity.EntityIceball;
 import Dr_Sideburns.winterWarMod.entity.EntityRockySnowBall;
 import cpw.mods.fml.common.Mod;
@@ -59,6 +60,14 @@ public class WinterWarMain {
 	public static Item rockySnowBall;
 	public static Item explodingSnowBall;
 	
+	//Choosers
+	public static ItemChooser chooser;
+	public static ItemChooserSnowball chooserSnowball;
+	public static ItemChooserIceball chooserIceball;
+	public static ItemChooserRockySnowball chooserRockySnowball;
+	public static ItemChooserExplodingSnowball chooserExplodingSnowball;
+	public static ItemChooserPotato chooserPotato;
+	
 	//Creative Tabs
 	public static CreativeTabs tabWWMod = new CreativeTabs("tabWWMod") {
 		public ItemStack getIconItemStack() {
@@ -92,6 +101,15 @@ public class WinterWarMain {
 		//Define Balls
 		iceBall = new ItemIceball(23221).setUnlocalizedName("iceBall").setTextureName("winterwarfare:iceball");
 		rockySnowBall = new ItemRockySnowBall(23222).setUnlocalizedName("rockySnowBall").setTextureName("winterwarfare:rockysnowball");
+		explodingSnowBall = new ItemExplodingSnowball(23223).setUnlocalizedName("explodingSnowball").setTextureName("winterwarfare:explodingsnowball");
+		
+		//Define Choosers
+		chooser = (ItemChooser) new ItemChooser(23224).setUnlocalizedName("chooser").setTextureName("winterwarfare:chooser");
+		chooserSnowball = (ItemChooserSnowball) new ItemChooserSnowball(23225).setUnlocalizedName("chooserSnowball").setTextureName("winterwarfare:choosersnowball");
+		chooserIceball = (ItemChooserIceball) new ItemChooserIceball(23226).setUnlocalizedName("chooserIceball").setTextureName("winterwarfare:choosericeball");
+		chooserRockySnowball = (ItemChooserRockySnowball) new ItemChooserRockySnowball(23227).setUnlocalizedName("chooserRockySnowball").setTextureName("winterwarfare.chooserrockysnowball");
+		chooserExplodingSnowball = (ItemChooserExplodingSnowball) new ItemChooserExplodingSnowball(23228).setUnlocalizedName("chooserExplodingSnowball").setTextureName("winterwarfare.chooserexplodingsnowball");
+		chooserPotato = (ItemChooserPotato) new ItemChooserPotato(23229).setUnlocalizedName("chooserPotato").setTextureName("winterwarfare:chooserpotato");
 	}
 	
 	@EventHandler
@@ -111,6 +129,15 @@ public class WinterWarMain {
 		//Name Balls
 		LanguageRegistry.addName(iceBall, "Ice Ball");
 		LanguageRegistry.addName(rockySnowBall, "Rocky Snowball");
+		LanguageRegistry.addName(explodingSnowBall, "Exploding Snowball");
+		
+		//Name Choosers
+		LanguageRegistry.addName(chooser, "Projectile Chooser");
+		LanguageRegistry.addName(chooserSnowball, "Projectile Chooser: Snowball");
+		LanguageRegistry.addName(chooserIceball, "Projectile Chooser: Iceball");
+		LanguageRegistry.addName(chooserRockySnowball, "Projectile Chooser: Rocky Snowball");
+		LanguageRegistry.addName(chooserExplodingSnowball, "Projectile Chooser: Exploding Snowball");
+		LanguageRegistry.addName(chooserPotato, "Projectile Chooser: Potato");
 		
 		//Name Creative Tabs
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabWWMod", "en_US", "Winter Warfare");
@@ -120,10 +147,12 @@ public class WinterWarMain {
 		GameRegistry.addShapelessRecipe(new ItemStack(iceBall, 9), new ItemStack(Block.ice));
 		GameRegistry.addRecipe(new ItemStack(icePick), "x", "y", 'x', new ItemStack(Item.ingotIron), 'y', new ItemStack(Item.stick));
 		GameRegistry.addRecipe(new ItemStack(rockySnowBall), "x", "xyx", "x", 'x', new ItemStack(Item.snowball), 'y', new ItemStack(Block.cobblestone));
+		GameRegistry.addRecipe(new ItemStack(explodingSnowBall), "x", "xyx", "x", 'x', new ItemStack(Item.snowball), 'y', new ItemStack(Block.tnt));
 		
 		//Register Entities
 		EntityRegistry.registerModEntity(EntityIceball.class, "Iceball", ++iceBallEntityId, this, 64, 10, true);
-		EntityRegistry.registerModEntity(EntityRockySnowBall.class, "Rocky SnowBall", ++rockySnowBallEntityId, this, 64, 10, true);
+		EntityRegistry.registerModEntity(EntityRockySnowBall.class, "Rocky Snowball", ++rockySnowBallEntityId, this, 64, 10, true);
+		EntityRegistry.registerModEntity(EntityExplodingSnowball.class, "Exploding Snowball", ++explodingSnowBallEntityId, this, 64, 10, true);
 		
 		//Register Renderers
 		proxy.registerRenderers();
