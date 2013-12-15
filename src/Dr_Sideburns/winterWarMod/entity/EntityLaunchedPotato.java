@@ -23,7 +23,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntityLaunchedIceball extends Entity implements IProjectile
+public class EntityLaunchedPotato extends Entity implements IProjectile
 {
     private int xTile = -1;
     private int yTile = -1;
@@ -40,19 +40,19 @@ public class EntityLaunchedIceball extends Entity implements IProjectile
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
-    private double damage = 1.0D;
+    private double damage = 0.8D;
 
     /** The amount of knockback an arrow applies when it hits a mob. */
     private int knockbackStrength;
 
-    public EntityLaunchedIceball(World par1World)
+    public EntityLaunchedPotato(World par1World)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
     }
 
-    public EntityLaunchedIceball(World par1World, double par2, double par4, double par6)
+    public EntityLaunchedPotato(World par1World, double par2, double par4, double par6)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -61,7 +61,7 @@ public class EntityLaunchedIceball extends Entity implements IProjectile
         this.yOffset = 0.0F;
     }
 
-    public EntityLaunchedIceball(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
+    public EntityLaunchedPotato(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -88,7 +88,7 @@ public class EntityLaunchedIceball extends Entity implements IProjectile
         }
     }
 
-    public EntityLaunchedIceball(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
+    public EntityLaunchedPotato(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -219,9 +219,8 @@ public class EntityLaunchedIceball extends Entity implements IProjectile
             vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
             
             float ff = 0.25F;
-            this.worldObj.spawnParticle("snowballpoof", this.posX - this.motionX * (double)ff, this.posY - this.motionY * (double)ff, this.posZ - this.motionZ * (double)ff, this.motionX, this.motionY, this.motionZ);
-            this.worldObj.spawnParticle("splash", this.posX - this.motionX * (double)ff, this.posY - this.motionY * (double)ff, this.posZ - this.motionZ * (double)ff, this.motionX, this.motionY, this.motionZ);
-            this.worldObj.spawnParticle("bubble", this.posX - this.motionX * (double)ff, this.posY - this.motionY * (double)ff, this.posZ - this.motionZ * (double)ff, this.motionX, this.motionY, this.motionZ);
+            this.worldObj.spawnParticle("crit", this.posX - this.motionX * (double)ff, this.posY - this.motionY * (double)ff, this.posZ - this.motionZ * (double)ff, this.motionX, this.motionY, this.motionZ);
+            this.worldObj.spawnParticle("crit", this.posX - this.motionX * (double)ff, this.posY - this.motionY * (double)ff, this.posZ - this.motionZ * (double)ff, this.motionX, this.motionY, this.motionZ);
 
             if (movingobjectposition != null)
             {
@@ -291,11 +290,11 @@ public class EntityLaunchedIceball extends Entity implements IProjectile
 
                     if (this.shootingEntity == null)
                     {
-                        damagesource = WWDamageSource.causeLaunchedIceballDamage(this, this);
+                        damagesource = WWDamageSource.causeLaunchedPotatoDamage(this, this);
                     }
                     else
                     {
-                        damagesource = WWDamageSource.causeLaunchedIceballDamage(this, this.shootingEntity);
+                        damagesource = WWDamageSource.causeLaunchedPotatoDamage(this, this.shootingEntity);
                     }
                     
                     if (movingobjectposition.entityHit.attackEntityFrom(damagesource, (float)i1))

@@ -2,25 +2,24 @@ package Dr_Sideburns.winterWarMod.entity;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntityExplodingSnowball extends EntityExplodingSnowball1
+public class EntityHardSnowball extends EntityThrowable
 {
-    public EntityExplodingSnowball(World par1World)
+    public EntityHardSnowball(World par1World)
     {
         super(par1World);
     }
 
-    public EntityExplodingSnowball(World par1World, EntityLivingBase par2EntityLivingBase)
+    public EntityHardSnowball(World par1World, EntityLivingBase par2EntityLivingBase)
     {
         super(par1World, par2EntityLivingBase);
     }
 
-    public EntityExplodingSnowball(World par1World, double par2, double par4, double par6)
+    public EntityHardSnowball(World par1World, double par2, double par4, double par6)
     {
         super(par1World, par2, par4, par6);
     }
@@ -40,8 +39,6 @@ public class EntityExplodingSnowball extends EntityExplodingSnowball1
             }
 
             par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)b0);
-            par1MovingObjectPosition.entityHit.worldObj.createExplosion(null, par1MovingObjectPosition.entityHit.posX, par1MovingObjectPosition.entityHit.posY, par1MovingObjectPosition.entityHit.posZ, 1.0F, true);
-            this.playSound("random.explode", 1.0F, 1.0F);
         }
 
         for (int i = 0; i < 8; ++i)

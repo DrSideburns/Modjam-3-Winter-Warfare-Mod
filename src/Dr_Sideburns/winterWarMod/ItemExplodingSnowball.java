@@ -1,6 +1,7 @@
 package Dr_Sideburns.winterWarMod;
 
 import Dr_Sideburns.winterWarMod.entity.EntityExplodingSnowball;
+import Dr_Sideburns.winterWarMod.entity.EntityExplodingSnowball1;
 import Dr_Sideburns.winterWarMod.entity.EntityIceball;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
