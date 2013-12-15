@@ -4,6 +4,7 @@ import Dr_Sideburns.winterWarMod.entity.EntityLaunchedExplodingSnowball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedIceball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedPotato;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedRockySnowball;
+import Dr_Sideburns.winterWarMod.entity.EntityLaunchedSlimeball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
@@ -29,5 +30,9 @@ public class WWDamageSource {
 	
 	public static DamageSource causeLaunchedPotatoDamage(EntityLaunchedPotato par1EntityLaunchedSnowball, Entity par2Entity) {
 		return (new EntityDamageSourceIndirect("launchedPotato", par1EntityLaunchedSnowball, par2Entity)).setProjectile();
+	}
+	
+	public static DamageSource causeLaunchedSlimeballDamage(EntityLaunchedSlimeball par1EntityLaunchedSlimeball, Entity par2Entity) {
+		return (new EntityDamageSourceIndirect("launchedSlimeball", par1EntityLaunchedSlimeball, par2Entity)).setProjectile();
 	}
 }

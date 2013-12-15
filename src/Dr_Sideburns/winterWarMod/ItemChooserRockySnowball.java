@@ -22,6 +22,10 @@ public class ItemChooserRockySnowball extends Item {
 			par3EntityPlayer.destroyCurrentEquippedItem();
 			par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(WinterWarMain.chooserPotato));
 		}
+		else if(par3EntityPlayer.inventory.hasItem(Item.slimeBall.itemID)) {
+			par3EntityPlayer.destroyCurrentEquippedItem();
+			par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(WinterWarMain.chooserSlimeball));
+		}
 		else if(par3EntityPlayer.inventory.hasItem(Item.snowball.itemID)) {
 			par3EntityPlayer.destroyCurrentEquippedItem();
 			par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(WinterWarMain.chooserSnowball));

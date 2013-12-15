@@ -14,7 +14,11 @@ public class ItemChooserPotato extends Item {
 	}
 	
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-		if(par3EntityPlayer.inventory.hasItem(Item.snowball.itemID)) {
+		if(par3EntityPlayer.inventory.hasItem(Item.slimeBall.itemID)) {
+			par3EntityPlayer.destroyCurrentEquippedItem();
+			par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(WinterWarMain.chooserSlimeball));
+		}
+		else if(par3EntityPlayer.inventory.hasItem(Item.snowball.itemID)) {
 			par3EntityPlayer.destroyCurrentEquippedItem();
 			par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(WinterWarMain.chooserSnowball));
 		}

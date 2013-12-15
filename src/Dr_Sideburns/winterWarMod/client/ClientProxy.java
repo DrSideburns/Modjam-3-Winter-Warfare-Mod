@@ -9,6 +9,7 @@ import Dr_Sideburns.winterWarMod.entity.EntityLaunchedExplodingSnowball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedIceball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedPotato;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedRockySnowball;
+import Dr_Sideburns.winterWarMod.entity.EntityLaunchedSlimeball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedSnowball;
 import Dr_Sideburns.winterWarMod.entity.EntityRockySnowBall;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -30,6 +31,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityLaunchedExplodingSnowball.class, new RenderSnowball(WinterWarMain.explodingSnowBall));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLaunchedPotato.class, new RenderSnowball(Item.potato));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHardSnowball.class, new RenderSnowball(Item.snowball));
+		RenderingRegistry.registerEntityRenderingHandler(EntityLaunchedSlimeball.class, new RenderSnowball(Item.slimeBall));
 	}
 	
 	@Override

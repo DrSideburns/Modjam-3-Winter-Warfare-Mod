@@ -4,6 +4,7 @@ import Dr_Sideburns.winterWarMod.entity.EntityLaunchedExplodingSnowball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedIceball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedPotato;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedRockySnowball;
+import Dr_Sideburns.winterWarMod.entity.EntityLaunchedSlimeball;
 import Dr_Sideburns.winterWarMod.entity.EntityLaunchedSnowball;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -62,6 +63,8 @@ public class ItemLauncher extends Item
         boolean flag4 = par3EntityPlayer.inventory.hasItem(WinterWarMain.explodingSnowBall.itemID) && par3EntityPlayer.inventory.hasItem(WinterWarMain.chooserExplodingSnowball.itemID);
         boolean flag15 = par3EntityPlayer.capabilities.isCreativeMode && par3EntityPlayer.inventory.hasItem(WinterWarMain.chooserPotato.itemID);
         boolean flag5 = par3EntityPlayer.inventory.hasItem(Item.potato.itemID) && par3EntityPlayer.inventory.hasItem(WinterWarMain.chooserPotato.itemID);
+        boolean flag16 = par3EntityPlayer.capabilities.isCreativeMode && par3EntityPlayer.inventory.hasItem(WinterWarMain.chooserSlimeball.itemID);
+        boolean flag6 = par3EntityPlayer.inventory.hasItem(Item.slimeBall.itemID) && par3EntityPlayer.inventory.hasItem(WinterWarMain.chooserSlimeball.itemID);
 
         if (flag11 || flag1)
         {
@@ -311,6 +314,56 @@ public class ItemLauncher extends Item
             if (!par2World.isRemote)
             {
                 par2World.spawnEntityInWorld(entitypotato);
+            }
+        }
+        
+        if (flag16 || flag6)
+        {
+            float f = (float)j / 20.0F;
+            f = (f * f + f * 2.0F) / 3.0F;
+
+            if ((double)f < 0.1D)
+            {
+                return;
+            }
+
+            if (f > 1.0F)
+            {
+                f = 1.0F;
+            }
+
+            EntityLaunchedSlimeball entityslimeball = new EntityLaunchedSlimeball(par2World, par3EntityPlayer, f * 2.0F);
+
+            if (f == 1.0F)
+            {
+                entityslimeball.setIsCritical(true);
+            }
+
+            int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
+
+            if (k > 0)
+            {
+                entityslimeball.setDamage(entityslimeball.getDamage() + (double)k * 0.5D + 0.5D);
+            }
+
+            int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
+
+            if (l > 0)
+            {
+                entityslimeball.setKnockbackStrength(l);
+            }
+
+            par1ItemStack.damageItem(1, par3EntityPlayer);
+            par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+
+            if (!flag16)
+            {
+                par3EntityPlayer.inventory.consumeInventoryItem(Item.slimeBall.itemID);
+            }
+
+            if (!par2World.isRemote)
+            {
+                par2World.spawnEntityInWorld(entityslimeball);
             }
         }
     }
