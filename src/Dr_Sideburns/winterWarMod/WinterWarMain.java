@@ -47,6 +47,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.Potion;
 import net.minecraft.src.ModLoader;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -267,7 +268,7 @@ public class WinterWarMain {
 		GameRegistry.addRecipe(new ItemStack(launcherGrip), "  x", "xxx", "x x", 'x', new ItemStack(Item.ingotIron));
 		GameRegistry.addRecipe(new ItemStack(launcher), "x", "y", 'x', new ItemStack(launcherBarrel), 'y', new ItemStack(launcherGrip));
 		GameRegistry.addRecipe(new ItemStack(frozenPumpkin), "xxx", "xyx", "xxx", 'x', new ItemStack(iceBall), 'y', new ItemStack(Block.pumpkin));
-		GameRegistry.addShapelessRecipe(new ItemStack(bucketHotChocolate), new ItemStack(Item.bucketMilk), new ItemStack(Item.sugar), new ItemStack(Block.cocoaPlant));
+		GameRegistry.addShapelessRecipe(new ItemStack(bucketHotChocolate), new ItemStack(Item.bucketMilk), new ItemStack(Item.sugar), new ItemStack(Item.dyePowder, 1, 3));
 		
 		//Register Entities
 		EntityRegistry.registerModEntity(EntityIceball.class, "Iceball", ++iceBallEntityId, this, 64, 10, true);

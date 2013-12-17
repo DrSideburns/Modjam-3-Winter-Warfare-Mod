@@ -433,4 +433,8 @@ public class ItemLauncher extends Item
     {
         return this.iconArray[par1];
     }
+    
+    public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+    	par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(WinterWarMain.chooser));
+    }
 }
